@@ -1,112 +1,368 @@
-/* Reutilizando e adaptando estilos de outras páginas de cadastro */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
 
+/* ===========================
+   VARIÁVEIS DE CORES PADRONIZADAS
+   =========================== */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --secondary: #6b7280;
+  --background: #f8fafc;
+  --card-bg: #ffffff;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+  --success: #10b981;
+  --error: #dc2626;
+  --info: #0ea5e9;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* ===========================
+   RESET GERAL
+   =========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--background) 0%, #f1f5f9 100%);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+/* ===========================
+   CONTAINER PRINCIPAL — MAIOR E MAIS ESPAÇOSO
+   =========================== */
 #alocacaoContainer {
-    max-width: 800px;
-    margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Aumentei o gap entre formulário e tabela */
 }
 
-#alocacaoContainer h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: var(--primary-color);
-}
-
+/* ===========================
+   FORMULÁRIO DE ALOCAÇÃO
+   =========================== */
 .form-container {
-    max-width: 800px;
-    margin: 0 auto 40px auto;
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+  transition: all 0.25s ease;
+  width: 100%;
+  max-width: 3800px;
+  margin: 0 auto;
 }
 
+.form-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* ===========================
+   TÍTULO DO FORMULÁRIO
+   =========================== */
+.form-container h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 30px; /* Aumentei a margem inferior */
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.form-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+  border-radius: 2px;
+}
+
+/* ===========================
+   LABELS
+   =========================== */
 .form-container label {
-    display: block;
-    margin-top: 15px;
-    margin-bottom: 5px;
-    color: var(--text-color);
-    font-weight: 500;
-    font-size: 14px;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 20px; /* Aumentei o espaço acima das labels */
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.form-container label:first-of-type {
+  margin-top: 0;
+}
+
+/* ===========================
+   SELECTS
+   =========================== */
+.form-container select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--card-bg);
+  color: var(--text);
+  transition: all 0.2s ease;
+  appearance: none;
 }
 
 .form-container select {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: 15px;
-    font-family: 'Poppins', sans-serif;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234A90E2' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 15px center;
-    background-size: 14px;
-    padding-right: 40px;
-    cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234a90e2' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 14px;
+  padding-right: 40px;
+  cursor: pointer;
 }
 
-.form-container button {
-    width: 100%;
-    padding: 12px;
-    background-color: var(--primary-color);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 10px;
-    transition: background-color 0.3s;
+.form-container select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
-.form-container button:hover {
-    background-color: var(--secondary-color);
+/* ===========================
+   BOTÃO ALOCAR
+   =========================== */
+#botaoAlocarProfessor {
+  width: 100%;
+  padding: 16px 24px; /* Aumentei o padding do botão */
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 30px; /* Aumentei o espaço acima do botão */
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+  cursor: pointer;
+  letter-spacing: 0.5px;
 }
 
+#botaoAlocarProfessor:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* ===========================
+   MENSAGEM DE STATUS
+   =========================== */
+#mensagem {
+  margin-top: 30px; /* Aumentei o espaço acima da mensagem */
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  animation: fadeIn 0.3s ease;
+  border: 1px solid transparent;
+}
+
+#mensagem.sucesso {
+  color: var(--success);
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+#mensagem.erro {
+  color: var(--error);
+  background-color: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===========================
+   TABELA DE ALOCAÇÕES — OCUPA A LARGURA TOTAL
+   =========================== */
 .table-container {
-    margin-top: 20px;
-    overflow-x: auto;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 30px; /* Aumentei o padding interno */
+  box-shadow: var(--shadow-md);
+  transition: all 0.25s ease;
+  width: 150%;
+  max-width: 1170px;
+  margin: 0 auto;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+.table-container:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
 }
 
-th, td {
-    padding: 12px 15px;
-    text-align: left;
-    border-bottom: 1px solid #e9ecef;
+.table-container h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 24px; /* Aumentei o tamanho do título da tabela */
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 25px; /* Aumentei a margem inferior */
+  letter-spacing: -0.5px;
 }
 
-th {
-    background-color: var(--primary-color);
-    color: white;
-    font-weight: 600;
+.table-container table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
-tr:last-of-type td {
-    border-bottom: none;
+.table-container th,
+.table-container td {
+  padding: 16px; /* Aumentei o padding das células */
+  text-align: left;
+  font-size: 14px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
 }
 
-tr:hover {
-    background-color: #f8f9fa;
+.table-container th {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.5px;
 }
 
-.delete-btn {
-    background-color: var(--error-color);
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+.table-container th:first-child {
+  border-top-left-radius: 12px;
 }
 
-.delete-btn:hover {
-    background-color: var(--error-hover-color);
+.table-container th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.table-container tr:last-child td {
+  border-bottom: none;
+}
+
+.table-container tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.table-container tbody tr:hover {
+  background-color: #e0f2fe;
+}
+
+/* ===========================
+   BOTÕES DA TABELA
+   =========================== */
+.table-container .edit-btn,
+.table-container .delete-btn {
+  padding: 8px 14px; /* Aumentei o padding dos botões */
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.2s ease;
+  margin-right: 8px;
+}
+
+.table-container .edit-btn {
+  background: linear-gradient(135deg, #0ea5e9, #0284c7);
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table-container .edit-btn:hover {
+  background: linear-gradient(135deg, #0284c7, #0877b8);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.table-container .delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.table-container .delete-btn:hover {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  #alocacaoContainer {
+    gap: 30px;
+  }
+
+  .form-container,
+  .table-container {
+    padding: 32px;
+    max-width: 100%;
+  }
+
+  .form-container h2 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .form-container select,
+  #botaoAlocarProfessor {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  .table-container h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .table-container th,
+  .table-container td {
+    padding: 12px;
+    font-size: 13px;
+  }
+
+  .table-container .edit-btn,
+  .table-container .delete-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
 }
