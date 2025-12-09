@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variáveis de Cores */
+:root {
+    --primary-color: #4A90E2; /* Azul primário */
+    --secondary-color: #357ABD; /* Azul secundário */
+    --background-color: #f8f9fa; /* Fundo claro */
+    --card-background: #ffffff; /* Fundo do card */
+    --text-color: #343a40; /* Cor de texto principal */
+    --light-text-color: #6c757d; /* Cor de texto secundária */
+    --border-color: #e9ecef; /* Cor da borda */
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+.grade-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* Controls */
+.space_buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #f1f3f5; /* Fundo mais suave */
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(74, 144, 226, 0.3);
+}
+
+.btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 144, 226, 0.4);
+}
+
+/* Table Container */
+.table-container {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border: 1px solid var(--border-color);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-background);
+    min-width: 1100px;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: left;
+    padding: 15px;
+    font-weight: 600;
+    font-size: 14px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th:last-child {
+    border-right: none;
+}
+
+td {
+    padding: 14px 15px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 14px;
+    vertical-align: top;
+}
+
+tr:hover {
+    background-color: #f2f4f6;
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+tr:nth-child(even):hover {
+    background-color: #f2f4f6;
+}
+
+.message {
+    margin-bottom: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #28a745; /* Verde para sucesso */
+}
+
+.message.error {
+    color: #dc3545; /* Vermelho para erro */
+}

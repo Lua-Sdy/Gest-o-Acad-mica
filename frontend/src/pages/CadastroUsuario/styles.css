@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===========================
+   GERAL - Reset e Variáveis
+   =========================== */
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #dbeafe;
+  --secondary: #6b7280;
+  --white: #ffffff;
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+  --error: #dc2626;
+  --success: #10b981;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+  --transition: all 0.2s ease-in-out;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 50%);
+  font-family: 'Poppins', sans-serif;
+  color: var(--gray-800);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* ===========================
+   CARD PRINCIPAL
+   =========================== */
+#cadastroContainer {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: var(--shadow-lg);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+#cadastroContainer:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ===========================
+   TÍTULO
+   =========================== */
+#cadastroContainer h2 {
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gray-800);
+  margin-bottom: 24px;
+  text-align: center;
+  letter-spacing: -0.5px;
+}
+
+/* ===========================
+   LABELS
+   =========================== */
+#cadastroContainer label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* ===========================
+   INPUTS & SELECT
+   =========================== */
+#cadastroContainer input[type="text"],
+#cadastroContainer input[type="email"],
+#cadastroContainer input[type="password"],
+#cadastroContainer select {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 20px;
+  border: 1px solid var(--gray-300);
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--white);
+  color: var(--gray-900);
+  transition: var(--transition);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Estilo específico para select */
+#cadastroContainer select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236b7280' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px;
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+/* Foco nos inputs */
+#cadastroContainer input:focus,
+#cadastroContainer select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  background-color: var(--white);
+}
+
+/* Placeholder */
+#cadastroContainer ::placeholder {
+  color: var(--gray-400);
+  opacity: 1;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+}
+
+/* ===========================
+   BOTÕES
+   =========================== */
+#botaoCadastrarUsuario {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: var(--white);
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  transition: var(--transition);
+  box-shadow: var(--shadow-md);
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+}
+
+#botaoCadastrarUsuario:hover {
+  background: linear-gradient(135deg, var(--primary-dark), #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+#botaoCadastrarUsuario:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+#botaoVoltar {
+  background: transparent;
+  color: var(--primary);
+  padding: 12px 24px;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  transition: var(--transition);
+  margin-top: 12px;
+  letter-spacing: 0.5px;
+}
+
+#botaoVoltar:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+}
+
+/* ===========================
+   MENSAGENS (Sucesso / Erro)
+   =========================== */
+#mensagem {
+  margin-top: 20px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+#mensagem.erro {
+  color: var(--error);
+  background-color: rgba(220, 38, 38, 0.1);
+  border-color: rgba(220, 38, 38, 0.3);
+}
+
+#mensagem.sucesso {
+  color: var(--success);
+  background-color: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+/* ===========================
+   RESPONSIVIDADE
+   =========================== */
+@media (max-width: 576px) {
+  #cadastroContainer {
+    margin: 16px;
+    padding: 32px;
+    border-radius: 12px;
+  }
+
+  #cadastroContainer h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  #cadastroContainer input,
+  #cadastroContainer select {
+    padding: 12px;
+    font-size: 15px;
+  }
+
+  #botaoCadastrarUsuario,
+  #botaoVoltar {
+    font-size: 15px;
+    padding: 12px;
+  }
+}

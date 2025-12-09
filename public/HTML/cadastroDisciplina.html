@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Disciplina</title>
+    <link rel="stylesheet" href="../CSS/cadastroDisciplina.css">
+</head>
+<body>
+    <div id="buscarCursoContainer">
+        <h3>Buscar Curso</h3>
+        <label for="nome_curso">Nome do Curso:</label>
+        <input type="text" id="nome_curso" placeholder="Digite o nome do curso">
+        <button id="botaoBuscarCurso">Buscar Curso</button>
+        <div id="mensagemCurso"></div>
+        <input type="hidden" id="idCursoSelecionado">
+    </div>
+
+    <!-- Botão para adicionar disciplina -->
+    <button id="botaoAdicionarDisciplina" style="display:none;">Adicionar Disciplina</button>
+
+    <!-- Cadastrar Disciplina (inicialmente escondido) -->
+    <div id="disciplinaContainer">
+        <h3>Cadastrar Disciplina</h3>
+        <label for="nomeDisciplina">Nome da Disciplina:</label>
+        <input type="text" id="nomeDisciplina" placeholder="Digite o nome da disciplina">
+
+        <label for="chPratica">Carga Horária Prática (em horas):</label>
+        <input type="number" id="chPratica" step="0.01">
+
+        <label for="chTeorica">Carga Horária Teórica (em horas):</label>
+        <input type="number" id="chTeorica" step="0.01">
+
+        <button id="cadastrarDisciplina">Cadastrar Disciplina</button>
+        <div id="mensagemDisciplina"></div>
+    </div>
+
+
+
+    <script src="../JS/cadastrarDisciplina.js"></script>    <script src="../JS/TabelaEditavel.js"></script>
+
+</body>
+</html>

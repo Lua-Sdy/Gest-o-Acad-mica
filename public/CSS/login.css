@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f8f9fa; /* Fundo mais claro e moderno */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+#loginContainer {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Sombra mais suave e proeminente */
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+#loginContainer:hover {
+    transform: translateY(-5px); /* Efeito sutil ao passar o mouse */
+}
+
+#loginContainer h2 {
+    margin-bottom: 30px;
+    color: #343a40; /* Cor de texto mais escura */
+    font-size: 28px;
+    font-weight: 600;
+}
+
+#loginContainer label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: 500; /* Peso da fonte ajustado */
+    color: #495057;
+    font-size: 14px;
+}
+
+#loginContainer input[type="email"],
+#loginContainer input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da; /* Borda mais clara */
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#loginContainer input[type="email"]:focus,
+#loginContainer input[type="password"]:focus {
+    border-color: #4A90E2; /* Azul primário mais moderno */
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25); /* Sombra de foco */
+    outline: none;
+}
+
+#botaoLogin {
+    background-color: #4A90E2; /* Azul primário */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.1s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#botaoLogin:hover {
+    background-color: #357ABD; /* Tom mais escuro no hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+#botaoLogin:active {
+    transform: scale(0.98);
+}
+
+#mensagem {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #dc3545; /* Vermelho padrão para mensagens de erro */
+    font-size: 14px;
+}

@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variáveis de Cores */
+:root {
+    --primary-color: #4A90E2; /* Azul primário */
+    --secondary-color: #357ABD; /* Azul secundário */
+    --background-color: #f8f9fa; /* Fundo claro */
+    --card-background: #ffffff; /* Fundo do card */
+    --text-color: #343a40; /* Cor de texto principal */
+    --light-text-color: #6c757d; /* Cor de texto secundária */
+    --border-color: #e9ecef; /* Cor da borda */
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 20px;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal */
+#cadastroSalaContainer {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    max-width: 450px; /* Tamanho ajustado */
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Labels */
+#cadastroSalaContainer label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Primeiro label sem margem-top */
+#cadastroSalaContainer label:first-of-type {
+    margin-top: 0;
+}
+
+/* Inputs de texto */
+#cadastroSalaContainer input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+#cadastroSalaContainer input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    outline: none;
+}
+
+/* Botão */
+#botaoCadastrarSala {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#botaoCadastrarSala:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+/* Mensagem */
+#mensagemSala {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Para quando o JavaScript adicionar classes */
+#mensagemSala.sucesso {
+    background-color: #d4edda;
+    color: var(--success-color);
+    border: 1px solid #c3e6cb;
+}
+
+#mensagemSala.erro {
+    background-color: #f8d7da;
+    color: var(--error-color);
+    border: 1px solid #f5c6cb;
+}
+
+#mensagemSala.info {
+    background-color: #d1ecf1;
+    color: var(--info-color);
+    border: 1px solid #bee5eb;
+}
+
+/* Placeholder */
+::placeholder {
+    color: var(--light-text-color);
+    opacity: 0.7;
+}
+
+/* Importa os estilos da tabela do arquivo de disciplina, pois o tableManager.js usa a mesma estrutura */
+/* Nota: O arquivo cadastroDisciplina.css já contém os estilos de tabela padronizados */
+@import url('cadastroDisciplina.css');

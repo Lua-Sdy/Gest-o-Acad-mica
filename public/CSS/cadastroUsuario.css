@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variáveis de Cores */
+:root {
+    --primary-color: #4A90E2;
+    --secondary-color: #357ABD;
+    --background-color: #f8f9fa;
+    --card-background: #ffffff;
+    --text-color: #343a40;
+    --light-text-color: #6c757d;
+    --border-color: #e9ecef;
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 20px;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal */
+#cadastroContainer {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Labels */
+#cadastroContainer label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Primeiro label sem margem-top */
+#cadastroContainer label:first-of-type {
+    margin-top: 0;
+}
+
+/* INPUT PADRÃO (como o Nome Completo) */
+#cadastroContainer input[type="text"],
+#cadastroContainer input[type="email"],
+#cadastroContainer input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+    color: var(--text-color);
+}
+
+/* SELECT - diferente dos inputs */
+#cadastroContainer select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234A90E2' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 14px;
+    padding-right: 40px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+/* Foco para INPUTS (text, email, password) - todos iguais */
+#cadastroContainer input[type="text"]:focus,
+#cadastroContainer input[type="email"]:focus,
+#cadastroContainer input[type="password"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    outline: none;
+}
+
+/* Foco para SELECT - mantém diferente */
+#cadastroContainer select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    outline: none;
+}
+
+/* Hover para INPUTS (text, email, password) - todos iguais */
+#cadastroContainer input[type="text"]:hover,
+#cadastroContainer input[type="email"]:hover,
+#cadastroContainer input[type="password"]:hover {
+    border-color: #b0bec5;
+}
+
+/* Botão */
+#botaoCadastrarUsuario {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#botaoCadastrarUsuario:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+#botaoCadastrarUsuario:active {
+    transform: translateY(0);
+}
+
+/* Mensagem */
+#mensagem {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+#mensagem.sucesso {
+    background-color: #d4edda;
+    color: var(--success-color);
+    border: 1px solid #c3e6cb;
+}
+
+#mensagem.erro {
+    background-color: #f8d7da;
+    color: var(--error-color);
+    border: 1px solid #f5c6cb;
+}
+
+#mensagem.info {
+    background-color: #d1ecf1;
+    color: var(--info-color);
+    border: 1px solid #bee5eb;
+}
+
+/* Placeholder */
+::placeholder {
+    color: var(--light-text-color);
+    opacity: 0.7;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Campo de senha com olho */
+
+/* Para inputs de senha com botão de toggle */
+#cadastroContainer input[type="password"] {
+    padding-right: 45px;
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+    #cadastroContainer {
+        padding: 20px;
+    }
+    
+    #cadastroContainer input[type="text"],
+    #cadastroContainer input[type="email"],
+    #cadastroContainer input[type="password"],
+    #cadastroContainer select {
+        padding: 14px;
+        font-size: 14px;
+    }
+    
+    #botaoCadastrarUsuario {
+        padding: 10px;
+        font-size: 15px;
+    }
+}

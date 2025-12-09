@@ -1,0 +1,324 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variáveis de Cores */
+:root {
+    --primary-color: #4A90E2; /* Azul primário */
+    --secondary-color: #357ABD; /* Azul secundário */
+    --background-color: #f8f9fa; /* Fundo claro */
+    --card-background: #ffffff; /* Fundo do card */
+    --text-color: #343a40; /* Cor de texto principal */
+    --light-text-color: #6c757d; /* Cor de texto secundária */
+    --border-color: #e9ecef; /* Cor da borda */
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+/* Reset e configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 20px;
+    background-color: var(--background-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container principal */
+#cadastroCursoContainer {
+    width: 100%;
+    max-width: 900px; /* Tamanho ajustado para melhor visualização */
+    background-color: var(--card-background);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    
+    /* Layout em grid para horizontal */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+    gap: 25px 30px; /* Espaçamento maior */
+    align-items: start;
+}
+
+/* Labels */
+#cadastroCursoContainer label {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--light-text-color);
+    font-size: 14px;
+}
+
+/* Reorganização do Grid para melhor legibilidade */
+/* Nome do Curso */
+#cadastroCursoContainer label:nth-of-type(1) { grid-row: 1; grid-column: 1; }
+#cadastroCursoContainer input#nome { grid-row: 2; grid-column: 1; }
+
+/* Carga Horária */
+#cadastroCursoContainer label:nth-of-type(2) { grid-row: 1; grid-column: 2; }
+#cadastroCursoContainer input#cargaHoraria { grid-row: 2; grid-column: 2; }
+
+/* Área */
+#cadastroCursoContainer label:nth-of-type(3) { grid-row: 3; grid-column: 1; }
+#cadastroCursoContainer select#area { grid-row: 4; grid-column: 1; }
+
+/* Descrição */
+#cadastroCursoContainer label:nth-of-type(4) { grid-row: 3; grid-column: 2; }
+#cadastroCursoContainer input#descricao { grid-row: 4; grid-column: 2; }
+
+/* Inputs e Select */
+#cadastroCursoContainer input[type="text"],
+#cadastroCursoContainer input[type="number"],
+#cadastroCursoContainer select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    background-color: #fefefe;
+    height: 48px; /* Altura consistente */
+}
+
+/* Foco nos inputs */
+#cadastroCursoContainer input[type="text"]:focus,
+#cadastroCursoContainer input[type="number"]:focus,
+#cadastroCursoContainer select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.15);
+    background-color: var(--card-background);
+}
+
+/* Select específico */
+#cadastroCursoContainer select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234A90E2' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 14px;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+/* Botão - ocupa as duas colunas */
+#botaoCadastrarCurso {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+    grid-row: 5; /* Nova linha para o botão */
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+#botaoCadastrarCurso:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
+}
+
+#botaoCadastrarCurso:active {
+    transform: translateY(0);
+}
+
+#botaoCadastrarCurso:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Mensagem - ocupa as duas colunas */
+#mensagem {
+    grid-column: 1 / -1; /* Ocupa todas as colunas */
+    grid-row: 6; /* Nova linha para a mensagem */
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 14px;
+}
+
+#mensagem.sucesso {
+    background-color: #d4edda;
+    color: var(--success-color);
+    border: 1px solid #c3e6cb;
+}
+
+#mensagem.erro {
+    background-color: #f8d7da;
+    color: var(--error-color);
+    border: 1px solid #f5c6cb;
+}
+
+#mensagem.info {
+    background-color: #d1ecf1;
+    color: var(--info-color);
+    border: 1px solid #bee5eb;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+    
+    #cadastroCursoContainer {
+        grid-template-columns: 1fr; /* 1 coluna em mobile */
+        padding: 25px;
+        gap: 20px;
+    }
+    
+    /* Todos os elementos ocupam coluna única em mobile */
+    #cadastroCursoContainer label,
+    #cadastroCursoContainer input,
+    #cadastroCursoContainer select,
+    #botaoCadastrarCurso,
+    #mensagem {
+        grid-column: 1;
+    }
+    
+    /* Reset das posições específicas para mobile */
+    #cadastroCursoContainer label:nth-of-type(1) { grid-row: 1; }
+    #cadastroCursoContainer input#nome { grid-row: 2; }
+    
+    #cadastroCursoContainer label:nth-of-type(2) { grid-row: 3; }
+    #cadastroCursoContainer input#cargaHoraria { grid-row: 4; }
+    
+    #cadastroCursoContainer label:nth-of-type(3) { grid-row: 5; }
+    #cadastroCursoContainer select#area { grid-row: 6; }
+    
+    #cadastroCursoContainer label:nth-of-type(4) { grid-row: 7; }
+    #cadastroCursoContainer input#descricao { grid-row: 8; }
+    
+    #botaoCadastrarCurso { grid-row: 9; }
+    #mensagem { grid-row: 10; }
+    
+    #cadastroCursoContainer input[type="text"],
+    #cadastroCursoContainer input[type="number"],
+    #cadastroCursoContainer select {
+        padding: 10px;
+    }
+    
+    #botaoCadastrarCurso {
+        padding: 12px;
+        font-size: 15px;
+    }
+}
+
+/* Placeholder estilizado */
+::placeholder {
+    color: var(--light-text-color);
+    opacity: 0.7;
+}
+
+/* Efeito de loading (para JavaScript) */
+.loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Estilos de Tabela (para uso em listagens) */
+.tabela-container {
+    margin-top: 30px;
+    overflow-x: auto;
+}
+
+.tabela-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.tabela-container th, .tabela-container td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabela-container th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.tabela-container tr:nth-child(even) {
+    background-color: #f2f4f6;
+}
+
+.tabela-container tr:hover {
+    background-color: #e9ecef;
+}
+
+.tabela-container .acao-btn {
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.tabela-container .editar-btn {
+    background-color: var(--info-color);
+    color: white;
+}
+
+.tabela-container .editar-btn:hover {
+    background-color: #0c5460;
+}
+
+.tabela-container .excluir-btn {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.tabela-container .excluir-btn:hover {
+    background-color: #721c24;
+}

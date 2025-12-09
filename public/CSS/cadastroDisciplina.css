@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* Variáveis de Cores */
+:root {
+    --primary-color: #4A90E2; /* Azul primário */
+    --secondary-color: #357ABD; /* Azul secundário */
+    --background-color: #f8f9fa; /* Fundo claro */
+    --card-background: #ffffff; /* Fundo do card */
+    --text-color: #343a40; /* Cor de texto principal */
+    --light-text-color: #6c757d; /* Cor de texto secundária */
+    --border-color: #e9ecef; /* Cor da borda */
+    --success-color: #28a745;
+    --error-color: #dc3545;
+    --warning-color: #ffc107;
+    --info-color: #17a2b8;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    padding: 20px;
+    background-color: var(--background-color);
+}
+
+/* Estilo base para containers de formulário/busca */
+.form-container {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+}
+
+/* Container de busca */
+#buscarCursoContainer {
+    @extend .form-container;
+}
+
+/* Título */
+.form-container h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 22px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* Labels */
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Inputs de texto e número */
+.form-container input[type="text"],
+.form-container input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-container input[type="text"]:focus,
+.form-container input[type="number"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
+    outline: none;
+}
+
+/* Botão "Buscar Curso" */
+#botaoBuscarCurso {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 600;
+}
+
+#botaoBuscarCurso:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+/* Mensagem da busca */
+.mensagem {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Input hidden */
+#idCursoSelecionado {
+    display: none;
+}
+
+/* Botão "Adicionar Disciplina" (entre os containers) */
+#botaoAdicionarDisciplina {
+    padding: 12px 25px;
+    background-color: var(--success-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 600;
+    display: block; /* Para ocupar a largura total se necessário */
+    width: auto; /* Ajuste automático */
+}
+
+#botaoAdicionarDisciplina:hover {
+    background-color: #218838;
+    transform: translateY(-1px);
+}
+
+/* Container da disciplina */
+#disciplinaContainer {
+    @extend .form-container;
+}
+
+/* Botão "Cadastrar Disciplina" */
+#cadastrarDisciplina {
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.1s;
+    font-weight: 600;
+}
+
+#cadastrarDisciplina:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-1px);
+}
+
+/* Estilos para quando o JavaScript adicionar classes */
+.mensagem.sucesso {
+    background-color: #d4edda;
+    color: var(--success-color);
+    border: 1px solid #c3e6cb;
+}
+
+.mensagem.erro {
+    background-color: #f8d7da;
+    color: var(--error-color);
+    border: 1px solid #f5c6cb;
+}
+
+.mensagem.info {
+    background-color: #d1ecf1;
+    color: var(--info-color);
+    border: 1px solid #bee5eb;
+}
+
+/* --- Estilos para Tabela Editável (Reutilizável) --- */
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    background-color: var(--card-background);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.data-table th, .data-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.data-table tr:nth-child(even) {
+    background-color: #f2f4f6;
+}
+
+.data-table tr:hover {
+    background-color: #e9ecef;
+}
+
+.data-table td input[type="text"],
+.data-table td input[type="number"] {
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Botões de Ação na Tabela */
+.data-table button {
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    font-weight: 500;
+}
+
+.data-table .edit-button {
+    background-color: var(--warning-color);
+    color: var(--text-color);
+}
+
+.data-table .edit-button:hover {
+    background-color: #e0a800;
+}
+
+.data-table .delete-button {
+    background-color: var(--error-color);
+    color: white;
+}
+
+.data-table .delete-button:hover {
+    background-color: #c82333;
+}
+
+.data-table .save-button {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.data-table .save-button:hover {
+    background-color: #218838;
+}
+
+/* Botão de Adicionar Novo */
+.add-new-button {
+    padding: 10px 15px;
+    background-color: var(--info-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 15px;
+    transition: background-color 0.3s;
+    font-weight: 600;
+}
+
+.add-new-button:hover {
+    background-color: #138496;
+}
+
+/* Estilo para a linha em modo de edição */
+.data-table tr.editing {
+    background-color: #fff3cd; /* Amarelo claro para indicar edição */
+}
